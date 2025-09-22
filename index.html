@@ -14,12 +14,10 @@ body, h1, p, a, button {
 
 body {
     background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
-    color: #333;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    padding: 20px;
     overflow: hidden;
 }
 
@@ -30,7 +28,7 @@ body {
     padding: 40px 30px;
     text-align: center;
     border-radius: 15px;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
     position: relative;
 }
 
@@ -39,7 +37,6 @@ h1 {
     font-weight: 700;
     color: #1f2937;
     margin-bottom: 15px;
-    line-height: 1.3;
 }
 
 p {
@@ -68,17 +65,7 @@ p {
     box-shadow: 0 10px 20px rgba(0,0,0,0.15);
 }
 
-.button-small {
-    background-color: #4b5563;
-}
-
-.button-small:hover {
-    background-color: #6b7280;
-}
-
-.hidden {
-    display: none;
-}
+.hidden { display: none; }
 
 img {
     max-width: 100%;
@@ -111,18 +98,32 @@ img.show-effect {
     margin-top: 20px;
 }
 
-/* พลุหลายสีลอยขึ้น */
-.firework {
-    position: absolute;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    pointer-events: none;
-    opacity: 1;
-    animation: floatUp 1s forwards;
+.button-dark {
+    background-color: #3e2723; /* น้ำตาลเข้ม */
+    color: white;
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
 }
 
-@keyframes floatUp {
+.button-dark:hover { background-color: #5d4037; }
+
+/* พลุแบบเส้นหลายเส้น */
+.firework {
+    position: absolute;
+    width: 4px;
+    height: 12px;
+    border-radius: 2px;
+    pointer-events: none;
+    opacity: 1;
+    animation: fireworkMove 1.2s forwards;
+}
+
+@keyframes fireworkMove {
     0% { transform: translate(0,0) scale(1); opacity: 1; }
     100% { transform: translate(var(--x), var(--y)) scale(0.5); opacity: 0; }
 }
@@ -134,10 +135,9 @@ img.show-effect {
     <!-- หน้าแรก -->
     <div id="intro">
         <h1>เสนอ<br>อาจารย์สุวิทย์ วงศ์คุ้มสิน</h1>
-        <p>โปรดคลิกที่ปุ่มด้านล่างเพื่อเข้าถึงเนื้อหาของ TCP </p>
+        <p>โปรดคลิกที่ปุ่มด้านล่างเพื่อเข้าถึงเนื้อหาของ TCP Concepts</p>
         <div class="button-group">
             <button class="button" onclick="showImageWithFireworks()">ถัดไป</button>
-            <button class="button-small" onclick="alert('ยกเลิก')">ยกเลิก</button>
         </div>
     </div>
 
@@ -146,31 +146,30 @@ img.show-effect {
         <img src="t.jpg" alt="อาจารย์สุวิทย์" id="teacher-img">
         <p class="caption">สวัสดีจ้านักเรียน</p>
         <div class="button-group">
-            <a href="login.html" class="button">เข้าสู่หน้าเนื้อหา</a>
-            <button class="button-small" onclick="goBack()">ย้อนกลับ</button>
+            <a href="login.html" class="button-dark">เข้าสู่หน้าเนื้อหา</a>
+            <button class="button-dark" onclick="goBack()">ย้อนกลับ</button>
         </div>
     </div>
 </div>
 
 <script>
 function createFireworks() {
-    const colors = ['#ff4d4d','#ffcc00','#4dff4d','#4d4dff','#ff4dff','#00ffff'];
-    for(let i=0; i<30; i++){
+    const colors = ['#ff4d4d','#ffcc00','#4dff4d','#4d4dff','#ff4dff','#00ffff','#ffa500','#ff69b4'];
+    for(let i=0; i<50; i++){ // จำนวนเส้นพลุเยอะขึ้น
         const firework = document.createElement('div');
         firework.classList.add('firework');
-        const color = colors[Math.floor(Math.random() * colors.length)];
-        firework.style.backgroundColor = color;
+        firework.style.backgroundColor = colors[Math.floor(Math.random()*colors.length)];
 
-        // กระจายรอบภาพ
+        // กระจายเป็นวงรอบภาพ
         const angle = Math.random() * 2 * Math.PI;
-        const radius = Math.random() * 120 + 50;
+        const radius = Math.random() * 160 + 60;
         firework.style.left = '50%';
         firework.style.top = '50%';
         firework.style.setProperty('--x', radius * Math.cos(angle) + 'px');
-        firework.style.setProperty('--y', -Math.abs(radius * Math.sin(angle)) + 'px'); // ลอยขึ้นด้านบน
+        firework.style.setProperty('--y', -Math.abs(radius * Math.sin(angle)) + 'px'); // ลอยขึ้น
 
         document.querySelector('.login-container').appendChild(firework);
-        setTimeout(()=> firework.remove(), 1000);
+        setTimeout(()=> firework.remove(), 1200);
     }
 }
 
@@ -178,7 +177,7 @@ function showImageWithFireworks() {
     createFireworks();
 
     const img = document.getElementById('teacher-img');
-    img.classList.remove('show-effect'); // รีเซ็ต animation
+    img.classList.remove('show-effect');
     setTimeout(()=> img.classList.add('show-effect'), 50);
 
     setTimeout(() => {
