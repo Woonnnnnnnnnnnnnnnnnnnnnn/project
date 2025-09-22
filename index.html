@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>อาจารย์ สุวิท</title>
+    <title>อาจารย์สุวิท</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         body, h1, p, a {
@@ -58,12 +58,13 @@
             background-color: #5c4033;
             color: white;
             border: none;
-            padding: 14px 28px;
-            font-size: 1.1rem;
+            padding: 12px 24px;
+            font-size: 1.05rem;
             font-weight: 500;
             cursor: pointer;
             border-radius: 8px;
             text-decoration: none;
+            margin: 5px;
             transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
             box-shadow: 0 6px 15px rgba(0,0,0,0.1);
         }
@@ -72,6 +73,17 @@
             background-color: #7a5c46;
             transform: translateY(-2px);
             box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+
+        /* ปุ่มเล็ก */
+        .button-small {
+            padding: 8px 16px;
+            font-size: 0.9rem;
+            background-color: #4b5563;
+        }
+
+        .button-small:hover {
+            background-color: #6b7280;
         }
 
         .hidden {
@@ -98,7 +110,7 @@
         <!-- ส่วนแรก -->
         <div id="intro">
             <h1>เสนอ<br>อาจารย์สุวิทย์ วงศ์คุ้มสิน</h1>
-            <p>โปรดคลิกที่ปุ่มด้านล่างเพื่อเข้าถึงเนื้อหาของ TCP </p>
+            <p>โปรดคลิกที่ปุ่มด้านล่างเพื่อเข้าถึงเนื้อหาของ TCP Concepts</p>
             <button class="button" onclick="showImage()">ถัดไป</button>
         </div>
 
@@ -107,6 +119,7 @@
             <img src="t.jpg" alt="อาจารย์สุวิทย์">
             <p class="caption">สวัสดีจ้านักเรียน</p>
             <a href="login.html" class="button">เข้าสู่หน้าเนื้อหา</a>
+            <button class="button-small" onclick="goBack()">ย้อนกลับ</button>
         </div>
     </div>
 
@@ -115,8 +128,11 @@
             document.getElementById("intro").classList.add("hidden");
             document.getElementById("image-section").classList.remove("hidden");
         }
+        function goBack() {
+            document.getElementById("image-section").classList.add("hidden");
+            document.getElementById("intro").classList.remove("hidden");
+        }
     </script>
 
 </body>
 </html>
-
