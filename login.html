@@ -45,27 +45,6 @@
             border-radius: 8px;
         }
 
-        /* Button styling */
-        .button {
-            display: block;
-            background-color: #7f6a44; /* น้ำตาลทอง */
-            color: white;
-            border: none;
-            padding: 14px 20px;
-            font-size: 1rem;
-            text-align: left;
-            width: 100%;
-            cursor: pointer;
-            border-radius: 6px;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            margin-bottom: 15px;
-        }
-
-        .button:hover {
-            background-color: #6a5634; /* สีเข้มเมื่อ hover */
-            transform: translateX(4px);
-        }
-
         /* Content section */
         .content {
             display: none;
@@ -77,25 +56,27 @@
             opacity: 0;
             max-height: 0;
             overflow: hidden;
+            margin-bottom: 20px;
         }
 
         .content.show {
             opacity: 1;
             max-height: 1000px;
             padding: 20px;
+            display: block;
         }
 
         .content p, .content ul {
             font-size: 1rem;
             color: #4a3c31;
-            margin-bottom: 10px; /* เพิ่มระยะห่างระหว่างบรรทัด */
+            margin-bottom: 10px;
         }
 
         .content h2 {
             font-size: 1.25rem;
             margin-top: 10px;
-            color: #7f6a44; /* น้ำตาลทอง */
-            margin-bottom: 15px; /* เพิ่มระยะห่างด้านล่าง */
+            color: #7f6a44;
+            margin-bottom: 15px;
         }
 
         .content h3 {
@@ -122,15 +103,6 @@
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
         }
 
-        /* Image styling with blur effect - now rectangle */
-        .card img {
-            width: 100%;
-            aspect-ratio: 16 / 9; /* สี่เหลี่ยมผืนผ้า responsive */
-            object-fit: cover; /* ครอบคลุมพื้นที่ */
-            border-bottom: 1px solid #ddd;
-            filter: blur(5px); /* เบลอภาพ */
-        }
-
         .card-content {
             padding: 15px;
         }
@@ -138,13 +110,26 @@
         .card-content h2 {
             font-size: 1.5rem;
             color: #4a3c31;
+            margin-top: 0;
         }
-
+        
         /* Increase shadow when the card is active */
         .card:active {
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); /* เพิ่มเงาเข้มเมื่อคลิก */
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
         }
 
+        /* Author's section styling */
+        .authors {
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .authors h3 {
+            color: #4a3c31;
+            font-size: 1rem;
+            font-weight: 500;
+            line-height: 1.8;
+        }
     </style>
 </head>
 
@@ -153,7 +138,6 @@
     <div class="container">
         <h1>TCP (Transmission Control Protocol) - โปรโตคอลควบคุมการส่งข้อมูลแบบมุ่งเน้นการเชื่อมต่อ</h1>
 
-        <!-- Topic 1: ภาพรวม TCP -->
         <div class="card" onclick="toggleContent(1)">
             <div class="card-content">
                 <h2>ภาพรวม TCP</h2>
@@ -161,10 +145,9 @@
             </div>
         </div>
         <div class="content" id="content-1">
-            <p>TCP (Transmission Control Protocol) เป็นโปรโตคอลที่ทำงานที่ชั้น <strong>Transport Layer</strong> ของโมเดล OSI และถูกออกแบบมาเพื่อให้การส่งข้อมูลที่มีความน่าเชื่อถือระหว่างสองเครื่องคอมพิวเตอร์ในเครือข่าย...</p>
+            <p>TCP (Transmission Control Protocol) เป็นโปรโตคอลที่ทำงานที่ชั้น <strong>Transport Layer</strong> ของโมเดล OSI และถูกออกแบบมาเพื่อให้การส่งข้อมูลที่มีความน่าเชื่อถือระหว่างสองเครื่องคอมพิวเตอร์ในเครือข่าย โดย TCP รับประกันว่าข้อมูลจะถูกส่งถึงปลายทางอย่างสมบูรณ์และถูกต้องตามลำดับ</p>
         </div>
 
-        <!-- Topic 2: การทำงานหลักของ TCP -->
         <div class="card" onclick="toggleContent(2)">
             <div class="card-content">
                 <h2>การทำงานหลักของ TCP</h2>
@@ -172,14 +155,13 @@
             </div>
         </div>
         <div class="content" id="content-2">
-            <p><strong>Three-Way Handshake:</strong> การเชื่อมต่อเริ่มต้นด้วยขั้นตอนที่เรียกว่า "Three-Way Handshake" ซึ่งประกอบด้วยขั้นตอนการแลกเปลี่ยนข้อมูลระหว่างต้นทางและปลายทางเพื่อให้การเชื่อมต่อเสถียรและปลอดภัย</p>
-            <p><strong>การส่งข้อมูล:</strong> เมื่อการเชื่อมต่อสำเร็จแล้ว, TCP จะทำการส่งข้อมูลในลำดับที่กำหนด โดยการใช้ Sequence Numbers เพื่อติดตามข้อมูล</p>
-            <p><strong>การยืนยันการรับข้อมูล:</strong> เมื่อปลายทางได้รับข้อมูลแล้วจะส่ง ACK (Acknowledgment) กลับมายังต้นทางเพื่อยืนยันว่าข้อมูลได้รับเรียบร้อย</p>
-            <p><strong>การควบคุมการไหล:</strong> การใช้ Sliding Window เพื่อควบคุมปริมาณข้อมูลที่สามารถส่งในแต่ละช่วงเวลา</p>
-            <p><strong>การจัดการความแออัด:</strong> TCP ใช้เทคนิคต่างๆ เช่น Slow Start, Congestion Avoidance, Fast Retransmit เพื่อควบคุมปริมาณข้อมูลที่ส่งในช่วงที่มีการแออัดในเครือข่าย</p>
+            <p><strong>Three-Way Handshake:</strong> เป็นขั้นตอนการเริ่มต้นการเชื่อมต่อ ซึ่งประกอบด้วยการส่งแพ็กเก็ต 3 ครั้ง: <strong>SYN (Synchronize)</strong> จากต้นทาง, <strong>SYN-ACK (Synchronize-Acknowledge)</strong> จากปลายทาง, และ <strong>ACK (Acknowledge)</strong> จากต้นทางอีกครั้งเพื่อยืนยันการเชื่อมต่อ </p>
+            <p><strong>การส่งข้อมูล:</strong> เมื่อการเชื่อมต่อสำเร็จแล้ว, TCP จะทำการแบ่งข้อมูลออกเป็นส่วนย่อยๆ ที่เรียกว่า <strong>Segment</strong> และส่งไปตามลำดับ โดยใช้ <strong>Sequence Numbers</strong> เพื่อติดตามลำดับของข้อมูล</p>
+            <p><strong>การยืนยันการรับข้อมูล (Acknowledgement):</strong> เมื่อปลายทางได้รับ Segment แล้วจะส่ง ACK กลับมายังต้นทางเพื่อยืนยันว่าข้อมูลได้รับเรียบร้อยแล้ว หากไม่มีการส่ง ACK กลับมา ต้นทางจะทำการส่งข้อมูลใหม่</p>
+            <p><strong>การควบคุมการไหล (Flow Control):</strong> TCP ใช้เทคนิคที่เรียกว่า <strong>Sliding Window</strong> เพื่อควบคุมปริมาณข้อมูลที่สามารถส่งได้ในแต่ละช่วงเวลา ป้องกันไม่ให้ปลายทางได้รับข้อมูลมากเกินไปจนเกิดปัญหา</p>
+            <p><strong>การจัดการความแออัด (Congestion Control):</strong> TCP ใช้เทคนิคต่างๆ เช่น **Slow Start** และ **Congestion Avoidance** เพื่อควบคุมปริมาณข้อมูลที่ส่งในช่วงที่มีการแออัดในเครือข่าย เพื่อลดการสูญเสียข้อมูล</p>
         </div>
 
-        <!-- Topic 3: คุณสมบัติเด่นของ TCP -->
         <div class="card" onclick="toggleContent(3)">
             <div class="card-content">
                 <h2>คุณสมบัติเด่นของ TCP</h2>
@@ -188,13 +170,14 @@
         </div>
         <div class="content" id="content-3">
             <ul>
-                <li><strong>Reliable:</strong> TCP รับประกันข้อมูลไม่สูญหายและไม่ผิดพลาด</li>
-                <li><strong>Ordered:</strong> ข้อมูลจะได้รับการจัดลำดับอย่างถูกต้อง</li>
-                <li><strong>Flow Control:</strong> การใช้ Sliding Window เพื่อการควบคุมการไหลของข้อมูล</li>
+                <li><strong>Reliable (น่าเชื่อถือ):</strong> TCP รับประกันว่าข้อมูลที่ส่งจะถึงปลายทางอย่างสมบูรณ์ ไม่มีการสูญหายหรือผิดพลาด</li>
+                <li><strong>Ordered (เรียงลำดับ):</strong> ข้อมูลจะได้รับการจัดลำดับอย่างถูกต้องตามที่ส่งมาจากต้นทาง</li>
+                <li><strong>Connection-Oriented (เน้นการเชื่อมต่อ):</strong> ต้องมีการสร้างการเชื่อมต่อก่อนการส่งข้อมูลและปิดการเชื่อมต่อเมื่อสิ้นสุด</li>
+                <li><strong>Flow Control (ควบคุมการไหล):</strong> ป้องกันไม่ให้ผู้ส่งส่งข้อมูลเร็วเกินกว่าที่ผู้รับจะประมวลผลได้</li>
+                <li><strong>Congestion Control (ควบคุมความแออัด):</strong> ปรับลดอัตราการส่งข้อมูลเมื่อเครือข่ายมีปริมาณการจราจรสูง</li>
             </ul>
         </div>
 
-        <!-- Topic 4: ข้อดีของ TCP -->
         <div class="card" onclick="toggleContent(4)">
             <div class="card-content">
                 <h2>ข้อดีของ TCP</h2>
@@ -203,13 +186,12 @@
         </div>
         <div class="content" id="content-4">
             <ul>
-                <li><strong>Reliability:</strong> การส่งข้อมูลที่มีความน่าเชื่อถือสูง</li>
-                <li><strong>Ordered Transfer:</strong> ข้อมูลจะส่งไปในลำดับที่ถูกต้อง</li>
-                <li><strong>Flow Control:</strong> ควบคุมการไหลของข้อมูล</li>
+                <li><strong>Reliability:</strong> การส่งข้อมูลที่มีความน่าเชื่อถือสูง เหมาะสำหรับแอปพลิเคชันที่ข้อมูลห้ามสูญหาย เช่น การโอนไฟล์หรือการท่องเว็บ</li>
+                <li><strong>Error Checking:</strong> มีการตรวจสอบข้อผิดพลาดและส่งข้อมูลซ้ำหากจำเป็น ทำให้มั่นใจได้ว่าข้อมูลที่ได้รับถูกต้อง</li>
+                <li><strong>Efficiency:</strong> แม้จะมีการทำงานที่ซับซ้อน แต่ก็มีประสิทธิภาพในการจัดการการส่งข้อมูลจำนวนมาก</li>
             </ul>
         </div>
 
-        <!-- Topic 5: ความแตกต่างระหว่าง TCP และ UDP -->
         <div class="card" onclick="toggleContent(5)">
             <div class="card-content">
                 <h2>ความแตกต่างระหว่าง TCP และ UDP</h2>
@@ -217,33 +199,53 @@
             </div>
         </div>
         <div class="content" id="content-5">
-            <p><strong>TCP:</strong> ให้ความสำคัญกับความน่าเชื่อถือและความปลอดภัยของข้อมูล ซึ่งจะทำให้ข้อมูลถูกส่งอย่างครบถ้วน แม้จะต้องแลกมาด้วยการใช้เวลามากขึ้น</p>
-            <p><strong>UDP:</strong> เป็นโปรโตคอลที่เร็วกว่า แต่ไม่มีการรับประกันความน่าเชื่อถือของข้อมูล ทำให้เหมาะกับการใช้งานที่ต้องการความเร็วสูง เช่น การประชุมทางวิดีโอหรือการเล่นเกมออนไลน์</p>
+            <p><strong>TCP:</strong> ให้ความสำคัญกับความน่าเชื่อถือและความปลอดภัยของข้อมูล ทำให้ข้อมูลถูกส่งอย่างครบถ้วน แม้จะต้องใช้เวลามากขึ้น</p>
+            <p><strong>UDP:</strong> เป็นโปรโตคอลที่เร็วกว่า แต่ไม่มีการรับประกันความน่าเชื่อถือของข้อมูล เหมาะสำหรับการใช้งานที่ต้องการความเร็วสูง เช่น การสตรีมวิดีโอ การโทรศัพท์ผ่านอินเทอร์เน็ต (VoIP) หรือการเล่นเกมออนไลน์</p>
             <ul>
-                <li><strong>ความแตกต่างในการเชื่อมต่อ:</strong> TCP ต้องการการตกลงก่อนเริ่มการสื่อสาร แต่ UDP สามารถส่งข้อมูลได้ทันที</li>
-                <li><strong>ความน่าเชื่อถือ:</strong> TCP รับประกันความถูกต้องของข้อมูล, UDP ไม่มีการรับประกันนี้</li>
+                <li><strong>การเชื่อมต่อ:</strong> TCP ต้องการการสร้างการเชื่อมต่อก่อน (Three-Way Handshake) ในขณะที่ UDP สามารถส่งข้อมูลได้ทันทีโดยไม่ต้องมีการสร้างการเชื่อมต่อ</li>
+                <li><strong>ความน่าเชื่อถือ:</strong> TCP รับประกันความถูกต้องของข้อมูลและมีการส่งข้อมูลซ้ำหากสูญหาย, UDP ไม่มีการรับประกันนี้</li>
                 <li><strong>ความเร็ว:</strong> UDP มีความเร็วสูงกว่าเพราะไม่มีการตรวจสอบหรือการควบคุมข้อผิดพลาด</li>
             </ul>
         </div>
+    </div>
+
+    <div class="authors">
+        <h3>ผู้จัดทำ</h3>
+        <h3>นายอันดามัน มีพยุง 680406400631</h3>
+        <h3>นางสาวภัทรวดี เรืองชม 680406401794</h3>
+        <h3>นางสาวเบญจรัตน์ บัวคลี่ 680406402880</h3>
     </div>
 
     <script>
         // Function to toggle content visibility with smooth animation
         function toggleContent(id) {
             var content = document.getElementById('content-' + id);
-            if (content.style.display === 'block') {
-                content.style.display = 'none';
+            // Check if the content is currently visible
+            var isVisible = window.getComputedStyle(content).display === 'block';
+
+            // Hide all other content sections
+            var allContents = document.querySelectorAll('.content');
+            allContents.forEach(function(item) {
+                if (item.id !== 'content-' + id) {
+                    item.classList.remove('show');
+                    item.style.display = 'none';
+                }
+            });
+
+            // Toggle the clicked content
+            if (isVisible) {
                 content.classList.remove('show');
+                content.style.display = 'none';
             } else {
                 content.style.display = 'block';
-                content.classList.add('show');
+                // Add a slight delay to allow the display property to take effect before the transition
+                setTimeout(function() {
+                    content.classList.add('show');
+                }, 10);
             }
         }
     </script>
-    <h3>ผู้จัดทำ</h3>
-    <h3>นายอันดามัน มีพยุง 680406400631</h3>
-    <h3>นางสาวภัทรวดี เรืองชม 680406401794</h3>
-    <h3>นางสาวเบญจรัตน์ บัวคลี่ 680406402880</h3>
 </body>
 
 </html>
+
