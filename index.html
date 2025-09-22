@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>อาจารย์ สุวิท</title>
+<title>Kek Dog Laughing Party</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 body, h1, p, a, button {
@@ -11,7 +11,6 @@ body, h1, p, a, button {
     padding: 0;
     font-family: 'Inter', sans-serif;
 }
-
 body {
     background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
     display: flex;
@@ -20,7 +19,6 @@ body {
     min-height: 100vh;
     overflow: hidden;
 }
-
 .login-container {
     background-color: #ffffff;
     width: 100%;
@@ -31,20 +29,17 @@ body {
     box-shadow: 0 15px 30px rgba(0,0,0,0.1);
     position: relative;
 }
-
 h1 {
     font-size: 2rem;
     font-weight: 700;
     color: #1f2937;
     margin-bottom: 15px;
 }
-
 p {
     font-size: 1.1rem;
     margin-bottom: 30px;
     color: #4b5563;
 }
-
 .button {
     padding: 12px 24px;
     font-size: 1rem;
@@ -58,48 +53,40 @@ p {
     background-color: #5c4033;
     color: white;
 }
-
 .button:hover {
     background-color: #7a5c46;
     transform: translateY(-2px);
     box-shadow: 0 10px 20px rgba(0,0,0,0.15);
 }
-
 .hidden { display: none; }
-
 img {
     max-width: 100%;
     border-radius: 12px;
     margin-bottom: 15px;
     transition: transform 0.5s ease;
 }
-
 img.show-effect {
     animation: img-pop 0.8s forwards;
 }
-
 @keyframes img-pop {
     0% { transform: scale(0.8); opacity: 0; }
     50% { transform: scale(1.1); }
     100% { transform: scale(1); opacity: 1; }
 }
-
 .caption {
     font-size: 1.2rem;
     font-weight: 600;
     color: #1f2937;
     margin-bottom: 20px;
 }
-
 .button-group {
     display: flex;
     justify-content: center;
     gap: 15px;
     margin-top: 20px;
 }
-
 .button-dark {
-    background-color: #3e2723; /* น้ำตาลเข้ม */
+    background-color: #3e2723;
     color: white;
     padding: 12px 24px;
     font-size: 1rem;
@@ -109,20 +96,17 @@ img.show-effect {
     cursor: pointer;
     box-shadow: 0 6px 15px rgba(0,0,0,0.1);
 }
-
 .button-dark:hover { background-color: #5d4037; }
-
-/* พลุแบบเส้นหลายเส้น */
+/* พลุหลายวงหลายชุด */
 .firework {
     position: absolute;
-    width: 4px;
-    height: 12px;
-    border-radius: 2px;
+    width: 6px;
+    height: 14px;
+    border-radius: 3px;
     pointer-events: none;
     opacity: 1;
     animation: fireworkMove 1.2s forwards;
 }
-
 @keyframes fireworkMove {
     0% { transform: translate(0,0) scale(1); opacity: 1; }
     100% { transform: translate(var(--x), var(--y)) scale(0.5); opacity: 0; }
@@ -135,7 +119,7 @@ img.show-effect {
     <!-- หน้าแรก -->
     <div id="intro">
         <h1>เสนอ<br>อาจารย์สุวิทย์ วงศ์คุ้มสิน</h1>
-        <p>โปรดคลิกที่ปุ่มด้านล่างเพื่อเข้าถึงเนื้อหาของ TCP Concepts</p>
+        <p>โปรดคลิกที่ปุ่มด้านล่างเพื่อเข้าถึงเนื้อหา</p>
         <div class="button-group">
             <button class="button" onclick="showImageWithFireworks()">ถัดไป</button>
         </div>
@@ -143,43 +127,58 @@ img.show-effect {
 
     <!-- หน้าเนื้อหา -->
     <div id="image-section" class="hidden">
-        <img src="t.jpg" alt="อาจารย์สุวิทย์" id="teacher-img">
-        <p class="caption">สวัสดีจ้านักเรียน</p>
+        <img src="https://media.tenor.com/images/2f1e5c6e9e5c5a2b3e5b6a1b6a1b6a1b/tenor.gif" alt="Kek Dog Laughing" id="teacher-img">
+        <p class="caption"> อาจารย์จะให้คะแนนเต็มใช่ไหม</p>
         <div class="button-group">
-            <a href="login.html" class="button-dark">เข้าสู่หน้าเนื้อหา</a>
-            <button class="button-dark" onclick="goBack()">ย้อนกลับ</button>
+            <a href="login.html" class="button-dark"> ใช่พร้อมเข้าสู่หน้าเนื้อหา</a>
+            <button class="button-dark" onclick="goBack()"> ไม่จ้าย้อนกลับ</button>
         </div>
     </div>
 </div>
 
+<!-- เพลง Blue -->
+<audio id="bg-music" src="blue.mp3" preload="auto" loop></audio>
+
 <script>
 function createFireworks() {
     const colors = ['#ff4d4d','#ffcc00','#4dff4d','#4d4dff','#ff4dff','#00ffff','#ffa500','#ff69b4'];
-    for(let i=0; i<50; i++){ // จำนวนเส้นพลุเยอะขึ้น
-        const firework = document.createElement('div');
-        firework.classList.add('firework');
-        firework.style.backgroundColor = colors[Math.floor(Math.random()*colors.length)];
-
-        // กระจายเป็นวงรอบภาพ
-        const angle = Math.random() * 2 * Math.PI;
-        const radius = Math.random() * 160 + 60;
-        firework.style.left = '50%';
-        firework.style.top = '50%';
-        firework.style.setProperty('--x', radius * Math.cos(angle) + 'px');
-        firework.style.setProperty('--y', -Math.abs(radius * Math.sin(angle)) + 'px'); // ลอยขึ้น
-
-        document.querySelector('.login-container').appendChild(firework);
-        setTimeout(()=> firework.remove(), 1200);
+    // สร้างหลายชุดซ้อนกัน
+    for(let set=0; set<3; set++){
+        setTimeout(()=>{
+            for(let j=0;j<3;j++){
+                for(let i=0; i<20; i++){
+                    const firework = document.createElement('div');
+                    firework.classList.add('firework');
+                    firework.style.backgroundColor = colors[Math.floor(Math.random()*colors.length)];
+                    const angle = Math.random() * 2 * Math.PI;
+                    const radius = Math.random() * 50 + j*50 + 30;
+                    firework.style.left = '50%';
+                    firework.style.top = '50%';
+                    firework.style.setProperty('--x', radius * Math.cos(angle) + 'px');
+                    firework.style.setProperty('--y', -Math.abs(radius * Math.sin(angle)) + 'px');
+                    document.querySelector('.login-container').appendChild(firework);
+                    setTimeout(()=> firework.remove(), 1200);
+                }
+            }
+        }, set*400); // แต่ละชุดเกิดห่างกันเล็กน้อย
     }
 }
 
 function showImageWithFireworks() {
+    // เล่นเพลง
+    const music = document.getElementById('bg-music');
+    music.currentTime = 0;
+    music.play();
+
+    // พลุ
     createFireworks();
 
+    // GIF เอฟเฟกต์
     const img = document.getElementById('teacher-img');
     img.classList.remove('show-effect');
     setTimeout(()=> img.classList.add('show-effect'), 50);
 
+    // แสดงหน้าเนื้อหา
     setTimeout(() => {
         document.getElementById("intro").classList.add("hidden");
         document.getElementById("image-section").classList.remove("hidden");
