@@ -53,10 +53,9 @@
             color: #4b5563;
         }
 
-        /* ปุ่มน้ำตาลเข้ม */
         .button {
             display: inline-block;
-            background-color: #5c4033; /* สีน้ำตาลเข้ม */
+            background-color: #5c4033;
             color: white;
             border: none;
             padding: 14px 28px;
@@ -70,34 +69,53 @@
         }
 
         .button:hover {
-            background-color: #7a5c46; /* น้ำตาลอ่อนขึ้นเล็กน้อย */
+            background-color: #7a5c46;
             transform: translateY(-2px);
             box-shadow: 0 10px 20px rgba(0,0,0,0.15);
         }
 
-        .main-page-link {
-            display: block;
-            margin-top: 20px;
-            text-decoration: none;
-            color: #1f2937;
-            font-size: 1rem;
-            font-weight: 500;
-            text-align: center;
-            transition: color 0.3s ease;
+        .hidden {
+            display: none;
         }
 
-        .main-page-link:hover {
-            color: #3b82f6;
+        img {
+            max-width: 100%;
+            border-radius: 12px;
+            margin-bottom: 15px;
+        }
+
+        .caption {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 20px;
         }
     </style>
 </head>
 <body>
 
     <div class="login-container">
-        <h1>เสนอ<br>อาจารย์สุวิทย์ วงศ์คุ้มสิน</h1>
-        <p>โปรดคลิกที่ปุ่มด้านล่างเพื่อเข้าถึงเนื้อหาของ TCP Concepts</p>
-        <a href="login.html" class="button">เข้าสู่หน้าเนื้อหา</a>
+        <!-- ส่วนแรก -->
+        <div id="intro">
+            <h1>เสนอ<br>อาจารย์สุวิทย์ วงศ์คุ้มสิน</h1>
+            <p>โปรดคลิกที่ปุ่มด้านล่างเพื่อเข้าถึงเนื้อหาของ TCP Concepts</p>
+            <button class="button" onclick="showImage()">เข้าสู่หน้าเนื้อหา</button>
+        </div>
+
+        <!-- ส่วนรูปภาพ -->
+        <div id="image-section" class="hidden">
+            <img src="t.jpg" alt="อาจารย์สุวิทย์">
+            <p class="caption">สวัสดีจ้านักเรียน</p>
+            <a href="login.html" class="button">เข้าสู่หน้าเนื้อหา</a>
+        </div>
     </div>
+
+    <script>
+        function showImage() {
+            document.getElementById("intro").classList.add("hidden");
+            document.getElementById("image-section").classList.remove("hidden");
+        }
+    </script>
 
 </body>
 </html>
