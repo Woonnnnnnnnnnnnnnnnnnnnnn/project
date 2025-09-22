@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>นำเสนอ</title>
+<title>Kek Dog Festival</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 body, h1, p, a, button { margin:0; padding:0; font-family:'Inter',sans-serif; }
@@ -24,8 +24,8 @@ img.show-effect { animation:img-pop 0.8s forwards; }
 /* พลุหลายวงหลายชุดเต็มหน้าจอ */
 .firework { position:absolute; width:6px; height:14px; border-radius:3px; pointer-events:none; opacity:1; animation:fireworkMove 1.2s forwards; }
 @keyframes fireworkMove { 0%{transform:translate(0,0) scale(1); opacity:1;} 100%{transform:translate(var(--x),var(--y)) scale(0.5); opacity:0;} }
-/* ซ่อน iframe เพลง */
-#youtube-music { display:none; }
+/* ซ่อน iframe เพลงอย่างมิดชิด */
+#youtube-music { position:absolute; width:1px; height:1px; left:-1000px; top:-1000px; border:0; }
 </style>
 </head>
 <body>
@@ -51,7 +51,7 @@ img.show-effect { animation:img-pop 0.8s forwards; }
     </div>
 </div>
 
-<!-- เพลง YouTube Blue -->
+<!-- เพลง YouTube Blue ซ่อน -->
 <iframe id="youtube-music" src="https://www.youtube.com/embed/Kq4dbZJakMs?autoplay=1&loop=1&playlist=Kq4dbZJakMs" frameborder="0" allow="autoplay" allowfullscreen></iframe>
 
 <script>
@@ -79,7 +79,7 @@ function createFireworks() {
 }
 
 function startFestival() {
-    // เปิดเพลง
+    // เปิดเพลง YouTube ซ่อน
     document.getElementById('youtube-music').style.display='block';
     // พลุ
     createFireworks();
