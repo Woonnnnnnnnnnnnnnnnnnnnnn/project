@@ -21,8 +21,6 @@
             align-items: center;
             min-height: 100vh;
             padding: 20px;
-            position: relative; /* เพิ่มเพื่อให้ .form-box อ้างอิงตำแหน่งได้ */
-            overflow: hidden;
         }
 
         .login-container {
@@ -58,7 +56,7 @@
         /* ปุ่มน้ำตาลเข้ม */
         .button {
             display: inline-block;
-            background-color: #5c4033;
+            background-color: #5c4033; /* สีน้ำตาลเข้ม */
             color: white;
             border: none;
             padding: 14px 28px;
@@ -72,7 +70,7 @@
         }
 
         .button:hover {
-            background-color: #7a5c46;
+            background-color: #7a5c46; /* น้ำตาลอ่อนขึ้นเล็กน้อย */
             transform: translateY(-2px);
             box-shadow: 0 10px 20px rgba(0,0,0,0.15);
         }
@@ -91,32 +89,6 @@
         .main-page-link:hover {
             color: #3b82f6;
         }
-
-        /* โค้ดที่เพิ่มเข้ามาจากรูปภาพ */
-        .form-box {
-            position: absolute;
-            right: 0;
-            top: 0;
-            width: 50%;
-            height: 100%;
-            background: #fff;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: #333;
-            text-align: center;
-            padding: 40px;
-            z-index: 1;
-            /* ปรับ transition ให้เข้ากับฟังก์ชัน JavaScript */
-            transform: translateX(100%); /* ซ่อนฟอร์มไว้ทางขวา */
-            transition: transform 0.6s ease-in-out; 
-        }
-
-        /* คลาสที่จะเพิ่มเมื่อต้องการแสดงฟอร์ม */
-        .form-box.active {
-            transform: translateX(0);
-        }
     </style>
 </head>
 <body>
@@ -124,25 +96,8 @@
     <div class="login-container">
         <h1>เสนอ<br>อาจารย์สุวิทย์ วงศ์คุ้มสิน</h1>
         <p>โปรดคลิกที่ปุ่มด้านล่างเพื่อเข้าถึงเนื้อหาของ TCP Concepts</p>
-        <button class="button" onclick="showForm()">เข้าสู่หน้าเนื้อหา</button>
+        <a href="login.html" class="button">เข้าสู่หน้าเนื้อหา</a>
     </div>
 
-    <div id="form-box" class="form-box">
-        <h2>ยินดีต้อนรับ</h2>
-        <p>นี่คือเนื้อหาสำหรับ TCP Concepts</p>
-        <button class="button" onclick="hideForm()">ปิด</button>
-    </div>
-
-    <script>
-        const formBox = document.getElementById('form-box');
-
-        function showForm() {
-            formBox.classList.add('active');
-        }
-
-        function hideForm() {
-            formBox.classList.remove('active');
-        }
-    </script>
 </body>
 </html>
