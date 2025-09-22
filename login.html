@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TCP Concepts</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset body and elements */
+        body, h1, h2, p, button {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        /* Body styling */
+        body {
+            background-color: #f4f1e1; /* น้ำตาลครีม */
+            color: #4a3c31; /* สีข้อความน้ำตาลเข้ม */
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+
+        /* Main container styling */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #fff; /* พื้นหลังขาว */
+            border-radius: 10px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            border-top: 6px solid #d5b89c; /* เส้นบนสีน้ำตาลครีม */
+        }
+
+        /* Title styling */
+        h1 {
+            text-align: center;
+            background-color: #d5b89c; /* สีน้ำตาลครีม */
+            color: #4a3c31; /* น้ำตาลเข้ม */
+            padding: 20px;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            border-radius: 8px;
+        }
+
+        /* Button styling */
+        .button {
+            display: block;
+            background-color: #7f6a44; /* น้ำตาลทอง */
+            color: white;
+            border: none;
+            padding: 14px 20px;
+            font-size: 1rem;
+            text-align: left;
+            width: 100%;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            margin-bottom: 15px;
+        }
+
+        .button:hover {
+            background-color: #6a5634; /* สีเข้มเมื่อ hover */
+            transform: translateX(4px);
+        }
+
+        /* Content section */
+        .content {
+            display: none;
+            padding: 20px;
+            background-color: #faf5e6; /* พื้นหลังอ่อนครีม */
+            border: 1px solid #ddd; /* กรอบบางๆ */
+            border-radius: 10px; /* มุมโค้ง */
+            transition: all 0.3s ease;
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+        }
+
+        .content.show {
+            opacity: 1;
+            max-height: 1000px;
+            padding: 20px;
+        }
+
+        .content p, .content ul {
+            font-size: 1rem;
+            color: #4a3c31;
+            margin-bottom: 10px; /* เพิ่มระยะห่างระหว่างบรรทัด */
+        }
+
+        .content h2 {
+            font-size: 1.25rem;
+            margin-top: 10px;
+            color: #7f6a44; /* น้ำตาลทอง */
+            margin-bottom: 15px; /* เพิ่มระยะห่างด้านล่าง */
+        }
+
+        .content h3 {
+            font-size: 1.125rem;
+            margin-top: 10px;
+            color: #7f6a44;
+        }
+
+        /* Card styling for each topic */
+        .card {
+            display: flex;
+            flex-direction: column;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Image styling with blur effect - now rectangle */
+        .card img {
+            width: 100%;
+            aspect-ratio: 16 / 9; /* สี่เหลี่ยมผืนผ้า responsive */
+            object-fit: cover; /* ครอบคลุมพื้นที่ */
+            border-bottom: 1px solid #ddd;
+            filter: blur(5px); /* เบลอภาพ */
+        }
+
+        .card-content {
+            padding: 15px;
+        }
+
+        .card-content h2 {
+            font-size: 1.5rem;
+            color: #4a3c31;
+        }
+
+        /* Increase shadow when the card is active */
+        .card:active {
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); /* เพิ่มเงาเข้มเมื่อคลิก */
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>TCP (Transmission Control Protocol) - โปรโตคอลควบคุมการส่งข้อมูลแบบมุ่งเน้นการเชื่อมต่อ</h1>
+
+        <!-- Topic 1: ภาพรวม TCP -->
+        <div class="card" onclick="toggleContent(1)">
+            <div class="card-content">
+                <h2>ภาพรวม TCP</h2>
+                <p>การอธิบายพื้นฐานเกี่ยวกับโปรโตคอล TCP ในการส่งข้อมูลที่เชื่อถือได้</p>
+            </div>
+        </div>
+        <div class="content" id="content-1">
+            <p>TCP (Transmission Control Protocol) เป็นโปรโตคอลที่ทำงานที่ชั้น <strong>Transport Layer</strong> ของโมเดล OSI และถูกออกแบบมาเพื่อให้การส่งข้อมูลที่มีความน่าเชื่อถือระหว่างสองเครื่องคอมพิวเตอร์ในเครือข่าย...</p>
+        </div>
+
+        <!-- Topic 2: การทำงานหลักของ TCP -->
+        <div class="card" onclick="toggleContent(2)">
+            <div class="card-content">
+                <h2>การทำงานหลักของ TCP</h2>
+                <p>การเชื่อมต่อแบบ Three-Way Handshake และวิธีการควบคุมการไหลของข้อมูล</p>
+            </div>
+        </div>
+        <div class="content" id="content-2">
+            <p><strong>Three-Way Handshake:</strong> การเชื่อมต่อเริ่มต้นด้วยขั้นตอนที่เรียกว่า "Three-Way Handshake" ซึ่งประกอบด้วยขั้นตอนการแลกเปลี่ยนข้อมูลระหว่างต้นทางและปลายทางเพื่อให้การเชื่อมต่อเสถียรและปลอดภัย</p>
+            <p><strong>การส่งข้อมูล:</strong> เมื่อการเชื่อมต่อสำเร็จแล้ว, TCP จะทำการส่งข้อมูลในลำดับที่กำหนด โดยการใช้ Sequence Numbers เพื่อติดตามข้อมูล</p>
+            <p><strong>การยืนยันการรับข้อมูล:</strong> เมื่อปลายทางได้รับข้อมูลแล้วจะส่ง ACK (Acknowledgment) กลับมายังต้นทางเพื่อยืนยันว่าข้อมูลได้รับเรียบร้อย</p>
+            <p><strong>การควบคุมการไหล:</strong> การใช้ Sliding Window เพื่อควบคุมปริมาณข้อมูลที่สามารถส่งในแต่ละช่วงเวลา</p>
+            <p><strong>การจัดการความแออัด:</strong> TCP ใช้เทคนิคต่างๆ เช่น Slow Start, Congestion Avoidance, Fast Retransmit เพื่อควบคุมปริมาณข้อมูลที่ส่งในช่วงที่มีการแออัดในเครือข่าย</p>
+        </div>
+
+        <!-- Topic 3: คุณสมบัติเด่นของ TCP -->
+        <div class="card" onclick="toggleContent(3)">
+            <div class="card-content">
+                <h2>คุณสมบัติเด่นของ TCP</h2>
+                <p>คุณสมบัติที่สำคัญในการรับประกันการส่งข้อมูลที่เชื่อถือได้</p>
+            </div>
+        </div>
+        <div class="content" id="content-3">
+            <ul>
+                <li><strong>Reliable:</strong> TCP รับประกันข้อมูลไม่สูญหายและไม่ผิดพลาด</li>
+                <li><strong>Ordered:</strong> ข้อมูลจะได้รับการจัดลำดับอย่างถูกต้อง</li>
+                <li><strong>Flow Control:</strong> การใช้ Sliding Window เพื่อการควบคุมการไหลของข้อมูล</li>
+            </ul>
+        </div>
+
+        <!-- Topic 4: ข้อดีของ TCP -->
+        <div class="card" onclick="toggleContent(4)">
+            <div class="card-content">
+                <h2>ข้อดีของ TCP</h2>
+                <p>ข้อดีที่ทำให้ TCP เป็นโปรโตคอลที่นิยมใช้ในหลายระบบ</p>
+            </div>
+        </div>
+        <div class="content" id="content-4">
+            <ul>
+                <li><strong>Reliability:</strong> การส่งข้อมูลที่มีความน่าเชื่อถือสูง</li>
+                <li><strong>Ordered Transfer:</strong> ข้อมูลจะส่งไปในลำดับที่ถูกต้อง</li>
+                <li><strong>Flow Control:</strong> ควบคุมการไหลของข้อมูล</li>
+            </ul>
+        </div>
+
+        <!-- Topic 5: ความแตกต่างระหว่าง TCP และ UDP -->
+        <div class="card" onclick="toggleContent(5)">
+            <div class="card-content">
+                <h2>ความแตกต่างระหว่าง TCP และ UDP</h2>
+                <p>ควรใช้แต่ละอย่างเมื่อใด?</p>
+            </div>
+        </div>
+        <div class="content" id="content-5">
+            <p><strong>TCP:</strong> ให้ความสำคัญกับความน่าเชื่อถือและความปลอดภัยของข้อมูล ซึ่งจะทำให้ข้อมูลถูกส่งอย่างครบถ้วน แม้จะต้องแลกมาด้วยการใช้เวลามากขึ้น</p>
+            <p><strong>UDP:</strong> เป็นโปรโตคอลที่เร็วกว่า แต่ไม่มีการรับประกันความน่าเชื่อถือของข้อมูล ทำให้เหมาะกับการใช้งานที่ต้องการความเร็วสูง เช่น การประชุมทางวิดีโอหรือการเล่นเกมออนไลน์</p>
+            <ul>
+                <li><strong>ความแตกต่างในการเชื่อมต่อ:</strong> TCP ต้องการการตกลงก่อนเริ่มการสื่อสาร แต่ UDP สามารถส่งข้อมูลได้ทันที</li>
+                <li><strong>ความน่าเชื่อถือ:</strong> TCP รับประกันความถูกต้องของข้อมูล, UDP ไม่มีการรับประกันนี้</li>
+                <li><strong>ความเร็ว:</strong> UDP มีความเร็วสูงกว่าเพราะไม่มีการตรวจสอบหรือการควบคุมข้อผิดพลาด</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // Function to toggle content visibility with smooth animation
+        function toggleContent(id) {
+            var content = document.getElementById('content-' + id);
+            if (content.style.display === 'block') {
+                content.style.display = 'none';
+                content.classList.remove('show');
+            } else {
+                content.style.display = 'block';
+                content.classList.add('show');
+            }
+        }
+    </script>
+    <h3>ผู้จัดทำ</h3>
+    <h3>นายอันดามัน มีพยุง 680406400631</h3>
+    <h3>นางสาวภัทรวดี เรืองชม 680406401794</h3>
+    <h3>นางสาวเบญจรัตน์ บัวคลี่ 680406402880</h3>
+</body>
+
+</html>

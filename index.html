@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>อาจารย์ สุวิท</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body, h1, p, a {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
+            color: #333;
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .login-container {
+            background-color: #ffffff;
+            width: 100%;
+            max-width: 420px;
+            padding: 40px 30px;
+            text-align: center;
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .login-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+
+        p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            color: #4b5563;
+        }
+
+        /* ปุ่มน้ำตาลเข้ม */
+        .button {
+            display: inline-block;
+            background-color: #5c4033; /* สีน้ำตาลเข้ม */
+            color: white;
+            border: none;
+            padding: 14px 28px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            cursor: pointer;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+        }
+
+        .button:hover {
+            background-color: #7a5c46; /* น้ำตาลอ่อนขึ้นเล็กน้อย */
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+
+        .main-page-link {
+            display: block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #1f2937;
+            font-size: 1rem;
+            font-weight: 500;
+            text-align: center;
+            transition: color 0.3s ease;
+        }
+
+        .main-page-link:hover {
+            color: #3b82f6;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+        <h1>เสนอ<br>อาจารย์สุวิทย์ วงศ์คุ้มสิน</h1>
+        <p>โปรดคลิกที่ปุ่มด้านล่างเพื่อเข้าถึงเนื้อหาของ TCP Concepts</p>
+        <a href="login.html" class="button">เข้าสู่หน้าเนื้อหา</a>
+    </div>
+
+</body>
+</html>
