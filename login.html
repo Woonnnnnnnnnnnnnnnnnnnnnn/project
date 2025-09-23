@@ -148,20 +148,22 @@
             <p>TCP (Transmission Control Protocol) เป็นโปรโตคอลที่ทำงานที่ชั้น <strong>Transport Layer</strong> ของโมเดล OSI และถูกออกแบบมาเพื่อให้การส่งข้อมูลที่มีความน่าเชื่อถือระหว่างสองเครื่องคอมพิวเตอร์ในเครือข่าย โดย TCP รับประกันว่าข้อมูลจะถูกส่งถึงปลายทางอย่างสมบูรณ์และถูกต้องตามลำดับ</p>
         </div>
 
-        <div class="card" onclick="toggleContent(2)">
-            <div class="card-content">
-                <h2>การทำงานหลักของ TCP</h2>
-                <p>การเชื่อมต่อแบบ Three-Way Handshake และวิธีการควบคุมการไหลของข้อมูล</p>
-            </div>
-        </div>
-        <div class="content" id="content-2">
-            <p><strong>Three-Way Handshake:</strong> เป็นขั้นตอนการเริ่มต้นการเชื่อมต่อ ซึ่งประกอบด้วยการส่งแพ็กเก็ต 3 ครั้ง: <strong>SYN (Synchronize)</strong> จากต้นทาง, <strong>SYN-ACK (Synchronize-Acknowledge)</strong> จากปลายทาง, และ <strong>ACK (Acknowledge)</strong> จากต้นทางอีกครั้งเพื่อยืนยันการเชื่อมต่อ </p>
-            <p><strong>การส่งข้อมูล:</strong> เมื่อการเชื่อมต่อสำเร็จแล้ว, TCP จะทำการแบ่งข้อมูลออกเป็นส่วนย่อยๆ ที่เรียกว่า <strong>Segment</strong> และส่งไปตามลำดับ โดยใช้ <strong>Sequence Numbers</strong> เพื่อติดตามลำดับของข้อมูล</p>
-            <p><strong>การยืนยันการรับข้อมูล (Acknowledgement):</strong> เมื่อปลายทางได้รับ Segment แล้วจะส่ง ACK กลับมายังต้นทางเพื่อยืนยันว่าข้อมูลได้รับเรียบร้อยแล้ว หากไม่มีการส่ง ACK กลับมา ต้นทางจะทำการส่งข้อมูลใหม่</p>
-            <p><strong>การควบคุมการไหล (Flow Control):</strong> TCP ใช้เทคนิคที่เรียกว่า <strong>Sliding Window</strong> เพื่อควบคุมปริมาณข้อมูลที่สามารถส่งได้ในแต่ละช่วงเวลา ป้องกันไม่ให้ปลายทางได้รับข้อมูลมากเกินไปจนเกิดปัญหา</p>
-            <p><strong>การจัดการความแออัด (Congestion Control):</strong> TCP ใช้เทคนิคต่างๆ เช่น **Slow Start** และ **Congestion Avoidance** เพื่อควบคุมปริมาณข้อมูลที่ส่งในช่วงที่มีการแออัดในเครือข่าย เพื่อลดการสูญเสียข้อมูล</p>
-        </div>
+<div class="content" id="content-2">
+    <p><strong>Three-Way Handshake:</strong> เป็นขั้นตอนการเริ่มต้นการเชื่อมต่อ ซึ่งประกอบด้วยการส่งแพ็กเก็ต 3 ครั้ง: <strong>SYN (Synchronize)</strong> จากต้นทาง, <strong>SYN-ACK (Synchronize-Acknowledge)</strong> จากปลายทาง, และ <strong>ACK (Acknowledge)</strong> จากต้นทางอีกครั้งเพื่อยืนยันการเชื่อมต่อ </p>
+    <p><strong>การส่งข้อมูล:</strong> เมื่อการเชื่อมต่อสำเร็จแล้ว, TCP จะทำการแบ่งข้อมูลออกเป็นส่วนย่อยๆ ที่เรียกว่า <strong>Segment</strong> และส่งไปตามลำดับ โดยใช้ <strong>Sequence Numbers</strong> เพื่อติดตามลำดับของข้อมูล</p>
+    <p><strong>การยืนยันการรับข้อมูล (Acknowledgement):</strong> เมื่อปลายทางได้รับ Segment แล้วจะส่ง ACK กลับมายังต้นทางเพื่อยืนยันว่าข้อมูลได้รับเรียบร้อยแล้ว หากไม่มีการส่ง ACK กลับมา ต้นทางจะทำการส่งข้อมูลใหม่</p>
+    <p><strong>การควบคุมการไหล (Flow Control):</strong> TCP ใช้เทคนิคที่เรียกว่า <strong>Sliding Window</strong> เพื่อควบคุมปริมาณข้อมูลที่สามารถส่งได้ในแต่ละช่วงเวลา ป้องกันไม่ให้ปลายทางได้รับข้อมูลมากเกินไปจนเกิดปัญหา</p>
+    <p><strong>การจัดการความแออัด (Congestion Control):</strong> TCP ใช้เทคนิคต่างๆ เช่น <em>Slow Start</em> และ <em>Congestion Avoidance</em> เพื่อควบคุมปริมาณข้อมูลที่ส่งในช่วงที่มีการแออัดในเครือข่าย เพื่อลดการสูญเสียข้อมูล</p>
 
+    <!-- ✅ เพิ่มรูป -->
+    <div style="text-align:center; margin-top:20px;">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/TCP_three-way_handshake.png" 
+         alt="Three-Way Handshake Diagram" 
+         style="max-width:100%; height:auto; border-radius:8px; box-shadow:0 4px 15px rgba(0,0,0,0.1);">
+    <p style="font-size:0.9rem; color:#7f6a44; margin-top:8px;">
+        ภาพแสดงขั้นตอน Three-Way Handshake ของ TCP
+    </p>
+</div>
         <div class="card" onclick="toggleContent(3)">
             <div class="card-content">
                 <h2>  ข้อเสียของTCP</h2>
@@ -256,6 +258,7 @@
 </body>
 
 </html>
+
 
 
 
